@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satellite Simulation / Whakamātau Amiorangi</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" data-en="Home" data-mi="Kāinga">Home</a></li>
+                <li><a href="company.html" data-en="Company" data-mi="Kamupene">Company</a></li>
+                <li><a href="scope.html" data-en="Project Scope" data-mi="Kōpaki Kaupapa">Project Scope</a></li>
+                <li><a href="competition.html" data-en="Competition" data-mi="Whakataetae">Competition</a></li>
+                <li><a href="opportunities.html" data-en="Opportunities" data-mi="Ngā Huanga">Opportunities</a></li>
+                <li><a href="simulation.html" data-en="Simulation" data-mi="Whakamātau">Simulation</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="text-align: center;">
+        <h1 data-en="Satellite Simulation" data-mi="Whakamātau Amiorangi">Satellite Simulation</h1>
+        <p data-en="Enter the following values to simulate the satellite's journey:" data-mi="Tāuruhia ngā uara e whai ake nei hei whakamātau i te haerenga o te amiorangi:">Enter the following values to simulate the satellite's journey:</p>
+
+        <!-- Input fields for mass, force, and distance -->
+        <div>
+            <input type="number" id="mass" placeholder="Mass (kg) / Mōkī (kg)" step="0.1">
+            <input type="number" id="force" placeholder="Force (N) / Kaha (N)" step="0.1">
+            <input type="number" id="distance" placeholder="Distance (KM) / Tawhiti (KM)" step="0.1">
+        </div>
+
+        <!-- Data Display: Shows live data as the simulation runs -->
+        <div id="dataDisplay">
+            <span data-en="Current Data:" data-mi="Raraunga o Nāianei:">Current Data:</span> <br><span id="currentData"></span>
+        </div>
+
+        <!-- Control Buttons: Start, Stop, and Resume buttons for the simulation -->
+        <div>
+            <button id="startSimulationButton" onclick="startSimulation()" data-en="Start Simulation" data-mi="Tīmata Whakamātau">Start Simulation</button>
+            <button id="stopButton" onclick="stopSimulation()" style="display:none;" data-en="Stop Simulation" data-mi="Kāti Whakamātau">Stop Simulation</button>
+            <button id="resumeButton" onclick="resumeSimulation()" style="display:none;" data-en="Resume Simulation" data-mi="Tīmata Anō Whakamātau">Resume Simulation</button>
+        </div>
+
+        <!-- Simulation Container: SVG graphics representing Earth and satellite orbit -->
+        <div id="simulation-container">
+            <svg viewBox="0 0 100 100">
+                <!-- Earth in the center -->
+                <image href="images/earth.png" x="25" y="25" width="50" height="50" />
+                <!-- Orbit path: Circular path representing the satellite’s orbit -->
+                <circle cx="50" cy="50" r="35" fill="none" stroke="white" stroke-width="0.5" id="orbit-path" />
+                <!-- Satellite sprite image -->
+                <image id="satellite" href="images/Satellite.png" x="48" y="10" width="12" height="12" />
+            </svg>
+        </div>
+
+        <h2 data-en="Simulation Results" data-mi="Ngā Hua o te Whakamātau">Simulation Results</h2>
+        <p id="result"></p> <!-- Placeholder for displaying the final simulation results -->
+    </main>
+
+    <footer>
+        <p data-en="&copy; 2024 Aotearoa Ascend. All rights reserved." data-mi="Pāpāho Rawa © 2024 Aotearoa Ascend. Kua rāhuitia ngā mana katoa.">&copy; 2024 Aotearoa Ascend. All rights reserved.</p>
+    </footer>
+
+    <!-- Language Toggle Button -->
+    <div id="language-toggle">
+        <img id="maori-flag" src="images/Maori.png" alt="Switch to Māori" onclick="switchToMaori()" style="cursor: pointer; display: none; width: 50px; height: 30px;">
+        <img id="nz-flag" src="images/english.jpeg" alt="Switch to English" onclick="switchToEnglish()" style="cursor: pointer; width: 50px; height: 30px;">
+    </div>
+
+    <!-- Link to the JavaScript file that handles the simulation logic -->
+    <script src="scripts/script.js"></script>
+    <script>
+        const toggleLanguageButton = document.getElementById('toggleLanguage');
+        let isEnglish = true;
+
+        toggleLanguageButton.addEventListener('click', () => {
+            const elements = document.querySelectorAll('[data-en]');
+            elements.forEach(element => {
+                if (isEnglish) {
+                    element.textContent = element.getAttribute('data-mi');
+                } else {
+                    element.textContent = element.getAttribute('data-en');
+                }
+            });
+            isEnglish = !isEnglish;
+            toggleLanguageButton.textContent = isEnglish ? 'Switch to Māori' : 'Switch to English';
+        });
+    </script>
+</body>
+</html>

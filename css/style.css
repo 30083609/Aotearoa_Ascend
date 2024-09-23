@@ -1,0 +1,151 @@
+/* Body Styling */
+body {
+    background-image: url('../images/background.png') !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    background-position: center !important;
+    height: 100vh;
+    margin: 0;
+    color: white !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Header Styling */
+header {
+    background-color: rgba(51, 51, 51, 0.8);
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Navigation Styling */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+nav ul li {
+    margin-right: 20px;
+    white-space: nowrap;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Simulation Container */
+#simulation-container {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* General Content Styling */
+.hero, .about, .company-overview, .scope-overview, .competition-overview, .opportunities-overview {
+    padding: 50px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 1000px;
+    width: calc(100% - 40px);
+    box-sizing: border-box;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}
+
+/* Button Styling */
+.btn, button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    margin: 10px 5px;
+}
+
+.btn:hover, button:hover {
+    background-color: #0056b3;
+}
+
+/* Input Styling */
+input {
+    margin: 5px;
+    padding: 5px;
+}
+
+/* Data Display */
+#dataDisplay {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Results Section */
+#result {
+    margin-top: 30px;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Footer Styling */
+footer {
+    background-color: rgba(51, 51, 51, 0.8);
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    margin-top: 20px;
+    box-sizing: border-box;
+    
+}
+
+/* Language Toggle Styling */
+#language-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#language-toggle img {
+    width: 50px;
+    height: 30px;
+    cursor: pointer;
+}
